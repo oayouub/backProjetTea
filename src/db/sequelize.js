@@ -25,7 +25,8 @@ const initDb = () => {
         infusionTime: produit.infusionTime,
         dosage: produit.dosage,
         temperature: produit.temperature,
-        types: produit.types
+        color: produit.color,
+        parfums: produit.parfums
       }).then(produit => console.log(produit.toJSON()))
     })
     console.log('La base de donnée a bien été initialisée !')
