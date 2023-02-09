@@ -20,6 +20,10 @@ require('./src/routes/findProduit')(app)
 require('./src/routes/updateProduit')(app)
 
 
-
+// on ajoute la gestion des erreurs 404
+app.use(({res}) => {
+    const message = 'Impossible de trouver la ressource demandée ! Vous pouvez essayer une autre URL.'
+    res.status(404).json({message})
+})
 
 app.listen(port, () => console.log(`Notre appliction Node est démarée sur : http://localhost:${port}`))

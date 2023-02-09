@@ -8,5 +8,9 @@ module.exports = (app) => {
         const message = `Le produit ${req.body.name} a bien été crée.`
         res.json({ message, data: produit })
       })
+      .catch(error => {
+        const message = 'Le produit n\'a pas pu etre ajouté. Réesayez dans quelques instants.'
+        res.status(500).json({ message, data: error })
+      })
   })
 }
