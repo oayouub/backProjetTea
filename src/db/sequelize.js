@@ -2,15 +2,28 @@ const { Sequelize, DataTypes } = require('sequelize')
 const produit = require('../models/produit')
 const ProduitModel = require('../models/produit')
 const produits = require('./bd.produit')
-  
-const sequelize = new Sequelize('produits', 'root', '', {
-  host: 'localhost',
-  dialect: 'mariadb',
-  dialectOptions: {
-    timezone: 'Etc/GMT-2',
-  },
-  logging: false
-})
+
+let sequelize
+if(process.env.NODE_ENV === 'production') {
+  const sequelize = new Sequelize('produits', 'root', '', {
+    host: 'localhost',
+    dialect: 'mariadb',
+    dialectOptions: {
+      timezone: 'Etc/GMT-2',
+    },
+    logging: false
+  })
+}else{
+
+  const sequelize = new Sequelize('produits', 'root', '', {
+    host: 'localhost',
+    dialect: 'mariadb',
+    dialectOptions: {
+      timezone: 'Etc/GMT-2',
+    },
+    logging: false
+  })
+}
   
 const Produit = ProduitModel(sequelize, DataTypes)
   
