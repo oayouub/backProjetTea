@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const sequelize = require('./src/db/sequelize')
 
 const app = express() //instance dune application express(serveur web)
-const port =  process.env.PORT || 3000 //port
+const port = 3000 //port
 
 app
 .use(bodyParser.json())
