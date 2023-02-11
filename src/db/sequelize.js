@@ -15,7 +15,7 @@ const sequelize = new Sequelize('produits', 'root', '', {
 const Produit = ProduitModel(sequelize, DataTypes)
   
 const initDb = () => {
-  return sequelize.sync({force: true}).then(_ => {
+  return sequelize.sync().then(_ => {
     produits.map(produit => {
       Produit.create({
         name: produit.name,
