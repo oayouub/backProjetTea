@@ -1,4 +1,4 @@
-const validColors = ["Noir", "Blanc", "Vert", "Nature"]
+const validColors = ["Noir", "Blanc", "Vert", "Jaune", "Mate"]
 const validParfums = ["Agrume", "Classique", "Floral", "Fruité"]
 
 module.exports = (sequelize, DataTypes) => {

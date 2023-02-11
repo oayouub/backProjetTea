@@ -1,5 +1,4 @@
 const express = require('express')
-const morgan = require('morgan')
 // const favicon = require('serve-favicon')
 const bodyParser = require('body-parser')
 const sequelize = require('./src/db/sequelize')
@@ -8,10 +7,13 @@ const app = express() //instance dune application express(serveur web)
 const port = 3000 //port
 
 app
-.use(morgan('dev'))
 .use(bodyParser.json())
 
 sequelize.initDb()
+
+app.get('/', (req, res) => {
+    res.json('Hello API')
+})
 
 require('./src/routes/findAllProduit')(app)
 require('./src/routes/createProduit')(app)
